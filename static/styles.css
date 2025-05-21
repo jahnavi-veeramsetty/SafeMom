@@ -1,0 +1,885 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px 0px;  /* Reduced padding */
+    background: #dcbbac;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.nav-link:hover {
+    color: #ff6b6b;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    background: url('https://i.pinimg.com/enabled_lo_mid/736x/54/81/60/548160f1a5aeefb120774429e6ab1781.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 50px 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Spacing between hero content and about section */
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin: 10px 0 20px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #ff4c4c;
+}
+
+.hero-about {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readability */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    color: #4a4a4a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-about h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.hero-about p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Features Section */
+.features {
+    text-align: center;
+    color: black;
+    padding: 0px 20px;
+}
+
+.features h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature-card {
+    width: 200px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.feature-card h4 {
+    font-size: 0px;
+    margin-bottom: 10px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.testimonials h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.testimonial-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.testimonial-card {
+    width: 250px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.testimonial-card h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.faq h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h4 {
+    font-size: 22px;
+    color: #333;
+}
+
+.faq-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Tracker Page */
+.tracker {
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Prediction Page */
+.prediction-form {
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Information Page */
+.information {
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.information ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.information li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+/* Profile Page */
+.profile-form {
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Apply background to the information page */
+.information-page {
+    background-image: url('{{ url_for("static", filename="bg.jpg") }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Additional styling for the content within the information page */
+.information-content {
+    background-color: rgba(255, 255, 255, 0.8);  /* Light background for content */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Styles for the Prediction Section */
+.prediction-section {
+    display: flex;
+    flex-direction: column; /* Stacks the boxes vertically */
+    align-items: center; /* Centers the boxes horizontally */
+    gap: 20px; /* Adds space between the boxes */
+    margin: 20px;
+}
+
+/* Box Styling */
+.box {
+    background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%; /* Makes the boxes take up 80% of the page width */
+    max-width: 1000px; /* Ensures the box doesn't stretch too wide */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Content inside the Box */
+.box h2 {
+    text-align: center;
+    color: #333;
+}
+
+.box p {
+    color: #555;
+}
+
+.box form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box label {
+    font-weight: bold;
+}
+
+.box input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.box button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.box button:hover {
+    background-color: #45a049;
+}
+/* User Feedback Section */
+.user-feedback-section {
+    display: flex;
+    flex-direction: column; /* Stack the feedback boxes vertically */
+    align-items: center;    /* Center them horizontally */
+    gap: 20px;              /* Space between the feedback boxes */
+    margin: 40px 0;
+}
+
+.user-feedback-section .box {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%; /* 80% of page width */
+    max-width: 1000px; /* Prevents the box from becoming too wide */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-feedback-section .box h2 {
+    text-align: center;
+    color: #333;
+}
+
+.user-feedback-section .box p {
+    text-align: center;
+    color: #555;
+    font-size: 18px;
+}
+
+.user-feedback-section .box p:last-child {
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+
+
+/* Transparent Rectangular Box */
+.prediction-container {
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 1000px; /* Limit the width */
+    width: 100%; /* Ensure it adapts for smaller screens */
+    margin: 20px auto; /* Center the box horizontally */
+}
+
+
+/* Form Grid Layout */
+.prediction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Form Buttons */
+.form-buttons {
+    grid-column: span 3; /* Makes buttons span the full width */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.predict-btn, .reset-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.predict-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #999;
+    color: white;
+}
+
+.predict-btn:hover {
+    background-color: #45a049;
+}
+
+.reset-btn:hover {
+    background-color: #777;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.footer {
+    background-color: #333;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: white;
+}
+
+.footer-nav {
+    margin-top: 10px;
+}
+
+.footer-link {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #333;
+}
+
+.tracker-box {
+    background-color: rgba(255, 255, 255, 0.8); /* White with transparency */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tracker-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tracker-table th, .tracker-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.submit-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+/* Apply background to the entire body */
+body {
+    background-image: url('https://i.pinimg.com/enabled_lo_mid/736x/4b/a3/be/4ba3be16e98c601262a0e681687ab97b.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a semi-transparent box for content */
+.tracker-box {
+    background-color: rgba(255, 255, 255, 0.8); /* white with transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Add to your styles.css for the transparent box */
+.data-box {
+    background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.data-box p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.data-box strong {
+    color: #333;
+}
+/* FAQ Section Styling */
+.faq {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    border-radius: 15px;  /* Rounded edges */
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a subtle 3D effect */
+}
+
+.faq h3 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.faq-item {
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly opaque white for each FAQ item */
+    border-radius: 10px;
+}
+
+.faq-item h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.faq-item p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+.side-by-side-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Position sections at both ends */
+    align-items: flex-start; /* Align sections at the top */
+    gap: 20px; /* Space between the sections */
+    margin: 20px auto; /* Center the container */
+    max-width: 1200px; /* Maximum width for the container */
+}
+
+.box {
+    flex: 2; /* Occupy more space for the pregnancy info section */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Inner padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Light border */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.bmi-box {
+    flex: 1; /* Occupy less space for the BMI Calculator */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Inner padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Light border */
+    box-sizing: border-box; /* Include padding in width/height */
+    text-align: center; /* Center the content horizontally */
+}
+
+.bmi-box h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 20px; /* Add space below the heading */
+}
+
+.bmi-box label, .bmi-box input {
+    display: block; /* Stack labels and inputs vertically */
+    margin: 10px auto; /* Center-align inputs */
+    text-align: left; /* Align labels to the left */
+    width: 80%; /* Set a fixed width for inputs */
+    font-size: 1rem; /* Adjust font size */
+}
+
+.bmi-box button {
+    margin: 20px auto;
+    display: block; /* Center the button */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.bmi-box button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.bmi-box p {
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .side-by-side-container {
+        flex-direction: column; /* Stack sections vertically on smaller screens */
+    }
+
+    .box, .bmi-box {
+        max-width: 100%; /* Full width for smaller screens */
+    }
+}
+
+.warning-box {
+    background-color: rgba(255, 0, 0, 0.7); /* Red with slight transparency */
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px; /* Space between the warning box and the side-by-side container */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+}
+
+.warning-symbol {
+    font-size: 30px;
+    margin-right: 15px; /* Space between the symbol and the text */
+}
+
+.warning-box p {
+    margin: 0; /* Remove margin for the paragraph inside the warning box */
+}
+
+
+
+
+  .ai-disclaimer-box {
+    max-width: 80%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: rgba(255, 0, 0, 0.1); /* Soft red tint */
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 4px 30px rgba(200, 23, 23, 0.2);
+  }
+  
+  .alert-content {
+    color: #8b0000;
+    font-weight: 600;
+    text-align: center;
+  }
+
+/* Two-column layout for the form */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Create two columns */
+    gap: 20px; /* Space between columns */
+  }
+  
+  .form-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-column .mb-3 {
+    margin-bottom: 15px; /* Space between inputs */
+  }
+  
+  input.form-control {
+    width: 100%;
+  }
+  
+  /* Adjust form button layout */
+  button[type="submit"], button[type="button"] {
+    margin-top: 20px;
+    width: auto;
+  }
+  
+  /* Responsive Design for smaller screens */
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr; /* Stack the form inputs vertically on smaller screens */
+    }
+  }
+
+  .form-box {
+    background: rgba(255, 255, 255, 0.1); /* Soft white transparency */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  h2.text-white {
+    text-align: center; /* Centers the text horizontally */
+    margin-bottom: 20px; /* Adds some space below the heading */
+  }
+  /* Container to align buttons */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Align buttons to the left and right */
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Styling for the Predict button */
+  .predict-btn {
+    background-color: #28a745; /* Green background */
+    border-radius: 25px; /* Rounded corners */
+    border: 1px solid #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for Predict button */
+  .predict-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+  }
+  
+  /* Styling for the Reset button */
+  .reset-btn {
+    background-color: #dc3545; /* Red background */
+    border-radius: 25px; /* Rounded corners */
+    border: 1px solid #dc3545;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for Reset button */
+  .reset-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+  }
+  
+  .bmi-box {
+    background-color: #fff7f9;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Jost', sans-serif;
+    color: #d63384;
+}
+
+.bmi-box h2 {
+    text-align: center;
+    color: #6b1c3c;
+    margin-bottom: 15px;
+}
+
+.bmi-box label {
+    display: block;
+    margin-top: 10px;
+    color: #890d1b;
+    font-weight: 600;
+}
+
+.bmi-box input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #f9d5e5;
+    border-radius: 12px;
+    background-color: #fff0f5;
+    color: #333;
+}
+
+#calculate-bmi {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background-color: #f8bbd0;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#calculate-bmi:hover {
+    background-color: #641831;
+}
+
+#bmi-result {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #581342;
+}
