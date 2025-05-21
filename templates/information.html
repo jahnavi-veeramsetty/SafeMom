@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information - SafeMom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body style="background-image: url('https://i.pinimg.com/enabled_lo_mid/736x/4b/a3/be/4ba3be16e98c601262a0e681687ab97b.jpg'); background-size: cover; background-position: center;">
+
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+                </a>
+            </div>
+            <h1 class="header-title">
+                <a href="{{ url_for('index') }}" style="text-decoration: none; color: inherit;">SafeMom</a>
+            </h1>
+        </div>
+        <nav class="nav-right">
+            <a href="{{ url_for('information') }}" class="nav-link {% if request.path == '/information' %}active{% endif %}">Information</a>
+            <a href="{{ url_for('tracker') }}" class="nav-link {% if request.path == '/tracker' %}active{% endif %}">Tracker</a>
+            <a href="{{ url_for('prediction') }}" class="nav-link {% if request.path == '/prediction' %}active{% endif %}">Prediction</a>
+            <a href="{{ url_for('profile') }}" class="nav-link {% if request.path == '/profile' %}active{% endif %}">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Picture">
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <section class="information-content">
+        <h2>Pregnancy Risk Information</h2>
+        <p>Here you can access vital information about pregnancy risks and how to monitor your health.</p>
+
+        <h3>Common Pregnancy Risk Factors</h3>
+        <ul>
+            <li><strong>Age:</strong> Women over 35 or under 18 may face higher risks during pregnancy.</li>
+            <li><strong>Blood Pressure:</strong> High blood pressure can lead to complications like preeclampsia.</li>
+            <li><strong>Blood Sugar:</strong> Gestational diabetes affects both mother and baby, leading to long-term health risks.</li>
+            <li><strong>Lifestyle Choices:</strong> Smoking, alcohol consumption, and poor diet can significantly impact pregnancy outcomes.</li>
+        </ul>
+
+        <h3>How Pregnancy Risk Analysis Works</h3>
+        <p>Our platform uses advanced machine learning techniques to assess the risks based on your input. The more information you provide, the more accurate the prediction.</p>
+
+        <h3>Tips for a Healthy Pregnancy</h3>
+        <ul>
+            <li>Maintain a balanced diet</li>
+            <li>Get regular exercise (as recommended by your doctor)</li>
+            <li>Stay hydrated and manage stress</li>
+            <li>Get adequate prenatal care and follow your doctor's advice</li>
+        </ul>
+
+        <h3>Learn More</h3>
+        <p>For more information about pregnancy risks, check out the following resources:</p>
+        <ul>
+            <li><a href="https://www.apa.org/topics/pregnancy">American Pregnancy Association</a></li>
+            <li><a href="https://www.who.int/health-topics/pregnancy">World Health Organization (WHO) - Pregnancy</a></li>
+        </ul>
+
+        <div>
+            <a href="{{ url_for('tracker') }}" class="cta-button">Track Your Pregnancy Health Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 SafeMom.</p>
+        <p>Made for the College Project</p>
+    </footer>
+
+</body>
+
+</html>

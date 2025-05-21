@@ -1,0 +1,6 @@
+streamlit
+Pillow
+base64
+psycopg2
+pandas
+numpy

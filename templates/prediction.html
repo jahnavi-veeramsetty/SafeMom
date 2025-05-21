@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Risk Prediction - SafeMom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+     <!-- Google Web Fonts -->
+     <link rel="preconnect" href="https://fonts.gstatic.com" />
+     <link
+       href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+       rel="stylesheet"
+     />
+ 
+     <!-- Icon Font Stylesheet -->
+     <link
+       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+       rel="stylesheet"
+     />
+     <link
+       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+       rel="stylesheet"
+     />
+
+     <style>
+      #predictionDisplay {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 30px;
+        max-width: 1000px;
+        margin: auto;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+    
+      #predictionDisplay .alert {
+        width: 100%;
+        text-align: center;
+        border-radius: 15px;
+        padding: 15px 20px;
+      }
+    
+      #predictionDisplay ul {
+        text-align: left;
+        padding-left: 20px;
+      }
+    
+      .risk-heading {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    
+      .risk-high {
+        color: #c3071a; /* Bootstrap red */
+      }
+    
+      .risk-medium {
+        color: #fd7e14; /* Bootstrap orange */
+      }
+    
+      .risk-low {
+        color: #28a745; /* Bootstrap green */
+      }
+    </style>
+    
+
+</head>
+<body style="background-image: url('https://i.pinimg.com/enabled_lo_mid/736x/4b/a3/be/4ba3be16e98c601262a0e681687ab97b.jpg'); background-size: cover; background-position: center;">
+
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+                </a>
+            </div>
+            <h1 class="header-title">
+                <a href="{{ url_for('index') }}" style="text-decoration: none; color: inherit;">SafeMom</a>
+            </h1>
+        </div>
+        <nav class="nav-right">
+            <a href="{{ url_for('information') }}" class="nav-link {% if request.path == '/information' %}active{% endif %}">Information</a>
+            <a href="{{ url_for('tracker') }}" class="nav-link {% if request.path == '/tracker' %}active{% endif %}">Tracker</a>
+            <a href="{{ url_for('prediction') }}" class="nav-link {% if request.path == '/prediction' %}active{% endif %}">Prediction</a>
+            <a href="{{ url_for('profile') }}" class="nav-link {% if request.path == '/profile' %}active{% endif %}">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Picture">
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <section class="prediction-section">
+      <div class="form-box">
+        <form id="predictionForm" action="{{url_for('submit')}}" method="post">
+          <h2 class="text-white">Pregnancy Risk Predictor</h2>
+          
+          <div class="form-row">
+            <div class="form-column">
+              <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" step="0.1" class="form-control" id="age" name="age" value="{{ request.form['age'] if request.method == 'POST' else '' }}" required />
+              </div>
+              <div class="mb-3">
+                <label for="temperature" class="form-label">Body Temperature (°F)</label>
+                <input type="number" step="0.1" class="form-control" id="temperature" name="temperature" value="{{ request.form['temperature'] if request.method == 'POST' else '' }}" required />
+              </div>
+              <div class="mb-3">
+                <label for="heart-rate" class="form-label">Heart Rate (bpm)</label>
+                <input type="number" step="0.1" class="form-control" id="heart-rate" name="heart-rate" value="{{ request.form['heart-rate'] if request.method == 'POST' else '' }}" required />
+              </div>
+              <div class="mb-3">
+                <label for="systolic" class="form-label">Systolic Blood Pressure (mm Hg)</label>
+                <input type="number" step="0.1" class="form-control" id="systolic" name="systolic" value="{{ request.form['systolic'] if request.method == 'POST' else '' }}" required />
+              </div>
+            </div>
+      
+            <div class="form-column">
+              <div class="mb-3">
+                <label for="diastolic" class="form-label">Diastolic Blood Pressure (mm Hg)</label>
+                <input type="number" step="0.1" class="form-control" id="diastolic" name="diastolic" value="{{ request.form['diastolic'] if request.method == 'POST' else '' }}" required />
+              </div>
+              <div class="mb-3">
+                <label for="bmi" class="form-label">BMI</label>
+                <input type="number" step="0.1" class="form-control" id="bmi" name="bmi" value="{{ request.form['bmi'] if request.method == 'POST' else '' }}" required />
+              </div>
+              <div class="mb-3">
+                <label for="hba1c" class="form-label">Blood Glucose (HbA1c)</label>
+                <input type="number" step="0.1" class="form-control" id="hba1c" name="hba1c" value="{{ request.form['hba1c'] if request.method == 'POST' else '' }}" required />
+              </div>
+              <div class="mb-3">
+                <label for="fasting-glucose" class="form-label">Blood Glucose (Fasting hour-mg/dl)</label>
+                <input type="number" step="0.1" class="form-control" id="fasting-glucose" name="fasting-glucose" value="{{ request.form['fasting-glucose'] if request.method == 'POST' else '' }}" required />
+              </div>
+            </div>
+          </div>
+      
+          <center>
+            <div class="button-container">
+              <button type="button" onclick="clearForm()" class="btn reset-btn">Reset Form</button>
+              <button type="submit" class="btn predict-btn" id="submit">Predict Risk</button>
+
+            </div>            
+          </center>
+        </form>
+      </div>
+       
+      </section>
+      <div id="predictionDisplay" class="mt-4">
+        {% if result.prediction == "High Risk" %}
+        <div class="alert alert-danger d-flex align-items-center justify-content-center flex-column" role="alert">
+          <h2 class="risk-heading risk-high">High Risk</h2>
+          <p>Your results show important concerns. Please consult with doctors as soon as possible for further care and advice.</p>
+        </div>
+      
+        {% if result.explanations %}
+        {% if result.explanations|length > 0 %}
+        <div class="alert alert-danger d-flex align-items-center justify-content-center flex-column" role="alert">
+          <ul class="mt-2">
+            <p><strong>Factors:</strong></p>
+            {% for explanation in result.explanations %}
+              <li>{{ explanation }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% endif %}
+      
+        <div class="alert alert-secondary d-flex align-items-center justify-content-center" role="alert">
+          <i class="bi bi-info-circle me-2"></i>
+          <strong>This is AI generated only; please also consult with a doctor before making any decisions.</strong>
+        </div>
+      
+        {% elif result.prediction == "Medium Risk" %}
+        <div class="alert alert-warning d-flex align-items-center justify-content-center flex-column" role="alert">
+          <h2 class="risk-heading risk-medium">Medium Risk</h2>
+          <p>Some of your results need attention. It's a good idea to consult your doctor and follow any recommended guidelines.</p>
+        </div>
+      
+        {% if result.explanations %}
+        {% if result.explanations|length > 0 %}
+        <div class="alert alert-warning d-flex align-items-center justify-content-center flex-column" role="alert">
+          <ul class="mt-2">
+            <p><strong>Factors:</strong></p>
+            {% for explanation in result.explanations %}
+              <li>{{ explanation }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% endif %}
+      
+        <div class="alert alert-secondary d-flex align-items-center justify-content-center" role="alert">
+          <i class="bi bi-info-circle me-2"></i>
+          <strong>This is AI generated only; please also consult with a doctor before making any decisions.</strong>
+        </div>
+      
+        {% elif result.prediction == "Low Risk" %}
+        <div class="alert alert-success d-flex align-items-center justify-content-center flex-column" role="alert">
+          <h2 class="risk-heading risk-low">Low Risk</h2>
+          <p>Your results look good! Keep up your healthy habits and stay in touch with your doctor for regular check-ups.</p>
+        </div>
+      
+        {% if result.explanations %}
+        {% if result.explanations|length > 0 %}
+        <div class="alert alert-success d-flex align-items-center justify-content-center flex-column" role="alert">
+          <ul class="mt-2">
+            <p><strong>Factors:</strong></p>
+            {% for explanation in result.explanations %}
+              <li>{{ explanation }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% endif %}
+      
+        <div class="ai-disclaimer-box">
+          <div class="alert-content d-flex align-items-center justify-content-center">
+            <i class="bi bi-info-circle me-2"></i>
+            <strong>This is AI generated only; please also consult with a doctor before making any decisions.</strong>
+          </div>
+        </div>
+        
+        {% endif %}
+      </div>
+    
+    
+        <div class="side-by-side-container">
+            <div class="box">
+                <h2>Why Pregnancy Risk Prediction Matters</h2>
+                <p>Accurately predicting risks during pregnancy allows healthcare providers to offer timely interventions and better care.</p>
+        
+                <h2>How We Predict Pregnancy Risk</h2>
+                <p>Using machine learning models and statistical analysis, we process the data you provide to predict potential risks.</p>
+        
+                <h2>Next Steps</h2>
+                <p>After getting your risk score, consult your healthcare provider to discuss preventive measures or further testing.</p>
+            </div>
+        
+            <div class="bmi-box">
+                <h2>BMI Calculator</h2>
+                <label for="bmi-height">Height (cm):</label>
+                <input type="number" id="bmi-height" placeholder="Enter height in cm">
+                <label for="bmi-weight">Weight (kg):</label>
+                <input type="number" id="bmi-weight" placeholder="Enter weight in kg">
+
+                <button id="calculate-bmi">Calculate BMI</button>
+                <p id="bmi-result"></p>
+            </div>
+        </div>
+        
+        
+
+        <script>
+            document.getElementById('calculate-bmi').addEventListener('click', function() {
+                const height = parseFloat(document.getElementById('bmi-height').value);
+                const weight = parseFloat(document.getElementById('bmi-weight').value);
+                
+                if (!height || !weight || height <= 0 || weight <= 0) {
+                    document.getElementById('bmi-result').textContent = "Please enter valid height and weight values.";
+                    return;
+                }
+                
+                const heightInMeters = height / 100;
+                const bmi = (weight / (heightInMeters ** 2)).toFixed(2);
+                document.getElementById('bmi-result').textContent = `Your BMI is: ${bmi}`;
+            });
+        </script>
+        <script>
+          function clearForm() {
+            const form = document.getElementById('predictionForm');
+            form.reset(); // resets native inputs
+            // Clear values manually in case some browsers retain them
+            Array.from(form.elements).forEach(el => {
+              if (el.type === 'number' || el.tagName === 'INPUT') {
+                el.value = '';
+              }
+            });
+            // Also clear prediction result if desired
+            const resultDiv = document.getElementById('predictionDisplay');
+            if (resultDiv) resultDiv.innerHTML = '';
+          }
+        </script>
+        
+             <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    </section>
+
+    <footer>
+        <p>© 2025 SafeMom.</p>
+        <p>Made for the College Project</p>
+    </footer>
+
+</body>
+</html>

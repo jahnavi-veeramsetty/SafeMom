@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker - SafeMom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+            .prediction-high {
+        color: #dc3545; /* red */
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .prediction-medium {
+        color: #fd7e14; /* orange */
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .prediction-low {
+        color: #28a745; /* green */
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+        .tracker-box {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+            transition: 0.3s ease;
+            align-items: normal;
+        }
+
+        .tracker-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .timestamp {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+                </a>
+            </div>
+            <h1 class="header-title">
+                <a href="{{ url_for('index') }}" style="color: #fff; text-decoration: none;">SafeMom</a>
+            </h1>
+        </div>
+        <nav class="nav-right">
+            <a href="/information" class="nav-link {% if request.path == '/information' %}active{% endif %}">Information</a>
+            <a href="/tracker" class="nav-link {% if request.path == '/tracker' %}active{% endif %}">Tracker</a>
+            <a href="/prediction" class="nav-link {% if request.path == '/prediction' %}active{% endif %}">Prediction</a>
+            <a href="/profile" class="nav-link {% if request.path == '/profile' %}active{% endif %}">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Picture">
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <section class="tracker">
+        <h2>Submitted Data</h2>
+        
+            {% for entry in entries %}
+            <div class="tracker-box">
+                {% set input_dict = entry.input_data | from_json %}
+                <ul>
+                    {% for key, value in input_dict.items() %}
+                        <li>{{ key.strip() }}: {{ value }}</li>
+                    {% endfor %}
+                </ul>
+                <div>
+                    <strong>Prediction:</strong>
+                    <span class="{% if entry.prediction_result == 'High Risk' %}prediction-high{% elif entry.prediction_result == 'Medium Risk' %}prediction-medium{% elif entry.prediction_result == 'Low Risk' %}prediction-low{% endif %}">
+                        {{ entry.prediction_result }}
+                    </span>
+                </div>
+                                <div class="timestamp"><em>{{ entry.timestamp.strftime('%d-%m-%Y %H:%M:%S') }}</em></div>
+            </div>
+            {% endfor %}
+        
+    </section>
+
+
+    <footer>
+        <p>© 2024 SafeMom.</p>
+        <p>Made for the Infosys Project</p>
+    </footer>
+</body>
+</html>
